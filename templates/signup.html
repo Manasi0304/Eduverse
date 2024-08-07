@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    Signup page
+    <div class="container">
+        <h2>Signup Form</h2>
+        <form>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname"><br><br>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob"><br><br>
+            <p id="age"></p>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br><br>
+            <label for="class">Class:</label>
+            <input type="text" id="class" name="class"><br><br>
+            <label for="division">Division:</label>
+            <input type="text" id="division" name="division"><br><br>
+            <label for="prnno">PRN No:</label>
+            <input type="text" id="prnno" name="prnno"><br><br>
+            <label for="institutename">Institute Name:</label>
+            <input type="text" id="institutename" name="institutename"><br><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <label for="confirmpassword">Confirm Password:</label>
+            <input type="password" id="confirmpassword" name="confirmpassword"><br><br>
+            <input type="checkbox" id="viewpassword" name="viewpassword">
+            <label for="viewpassword">View Password</label><br><br>
+            <input type="submit" value="Signup">
+        </form>
+    </div>
+
+    <script>
+        const dobInput = document.getElementById('dob');
+        const agePara = document.getElementById('age');
+
+        dobInput.addEventListener('input', () => {
+            const dob = new Date(dobInput.value);
+            const today = new Date();
+            const age = today.getFullYear() - dob.getFullYear();
+            agePara.textContent = `You are ${age} years old.`;
+        });
+    </script>
 </body>
 </html>
