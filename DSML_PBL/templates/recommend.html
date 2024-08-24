@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EduVerse Get Recommendations</title>
+	<!-- Favicon -->
+    <link href="static/assets/images/open-book.ico" rel="icon">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+    <link rel="stylesheet" href="static/assets/css/owl.css">
+    <link rel="stylesheet" href="static/assets/css/lightbox.css">
+</head>
+<style>
+	body {
+		background-image: url('static/assets/images/meetings_bg.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		margin:0;
+		padding-top: 100px;
+	}
+	
+</style>
+<body>
+	<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        EduVerse
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Logout</a></li> 
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+<h1 class="center-title">Fill the details to get Recommendations</h1>
+	<form>
+		<label>Gender:</label>
+		<input type="radio" name="gender" value="Male"> Male
+		<input type="radio" name="gender" value="Female"> Female
+		<input type="radio" name="gender" value="Other"> Other
+		<br><br>
+		<label>Part time job:</label>
+		<input type="radio" name="part_time_job" value="Yes"> Yes
+		<input type="radio" name="part_time_job" value="No"> No
+		<br><br>
+		<label>Absence Days:</label>
+		<input type="number" name="absence_days" >
+		<br><br>
+		<label>Extracurricular Activities:</label>
+		<input type="text" name="extracurricular_activities">
+		<br><br>
+		<label>Weekly self study hours:</label>
+		<input type="number" name="weekly_self_study_hours" >
+		<br><br>
+		<label>Maths Score:</label>
+		<input type="number" name="maths_score" >
+		<br><br>
+		<label>Biology Score:</label>
+		<input type="number" name="biology_score" >
+		<br><br>
+		<label>History Score:</label>
+		<input type="number" name="history_score" >
+		<br><br>
+		<label>Chemistry Score:</label>
+		<input type="number" name="chemistry_score">
+		<br><br>
+		<label>Physics Score:</label>
+		<input type="number" name="physics_score" >
+		<br><br>
+		<label>English Score:</label>
+		<input type="number" name="english_score" >
+		<br><br>
+		<label>Geography Score:</label>
+		<input type="number" name="geography_score" >
+		<br><br>
+		<label>Total Score:</label>
+		<input type="number" name="total_score" readonly>
+		<br><br>
+		<label>Average Score:</label>
+		<input type="number" name="average_score" readonly>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+	<div class="footer">
+		<p>Copyright © 2024 EduVerse All Rights Reserved. 
+			<br><a href="/" target="_parent" title="/">EduVerse</a></p>
+	  </div>
+	</section>
+  
+	<!-- Scripts -->
+	<!-- Bootstrap core JavaScript -->
+	  <script src="static/vendor/jquery/jquery.min.js"></script>
+	  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+	  <script src="static/assets/js/isotope.min.js"></script>
+	  <script src="static/assets/js/owl-carousel.js"></script>
+	  <script src="static/assets/js/lightbox.js"></script>
+	  <script src="static/assets/js/tabs.js"></script>
+	  <script src="static/assets/js/video.js"></script>
+	  <script src="static/assets/js/slick-slider.js"></script>
+	  <script src="static/assets/js/custom.js"></script>
+	  <script>
+		// Initialize first nav item as active
+		$('.nav li:first').addClass('active');
+	
+		var showSection = function showSection(section, isAnimate) {
+			var direction = section.replace(/#/, ''),
+				reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+				reqSectionPos = reqSection.offset().top - 0;
+	
+			if (isAnimate) {
+				$('body, html').animate({
+					scrollTop: reqSectionPos
+				}, 800);
+			} else {
+				$('body, html').scrollTop(reqSectionPos);
+			}
+		};
+	
+		var checkSection = function checkSection() {
+			$('.section').each(function () {
+				var $this = $(this),
+					topEdge = $this.offset().top - 80,
+					bottomEdge = topEdge + $this.height(),
+					wScroll = $(window).scrollTop();
+	
+				if (topEdge < wScroll && bottomEdge > wScroll) {
+					var currentId = $this.data('section'),
+						reqLink = $('a').filter('[href="#' + currentId + '"]');
+					reqLink.closest('li').addClass('active').siblings().removeClass('active');
+				}
+			});
+		};
+	
+		$(window).scroll(function () {
+			checkSection();
+		});
+	
+		$('.nav').on('click', 'a', function (e) {
+			if ($(this).attr('href').startsWith('#')) {
+				e.preventDefault();
+				showSection($(this).attr('href'), true);
+			}
+		});
+	</script>
+	
+</body>
+</html>

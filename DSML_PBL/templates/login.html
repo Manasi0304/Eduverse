@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Page</title>
+    <link rel="stylesheet" href="static/assets/css/login_style.css">
+
+    <!-- Favicon -->
+    <link href="static/assets/images/open-book.ico" rel="icon">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">EduVerse</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="curved-shape animation"></div>
+        <div class="curved-shape2"></div>
+
+        <div class="form-box Login">
+            <h2 class="animation" style="--D:0 ;--S:21">Login</h2>
+            <form action="#">
+                <div class="input-box animation" style="--D:1; --S:22">
+                    <input type="text" required>
+                    <label for="">Username</label>
+                    <i class='bx bxs-user-circle'></i>
+                </div>
+                <div class="input-box animation" style="--D:2; --S:23">
+                    <input type="password" required>
+                    <label for="">Password</label>
+                    <i class='bx bxs-lock-open-alt'></i>
+                </div>
+                <div class="input-box animation" style="--D:3; --S:23">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+                <div class="regi-link animation" style="--D:4; --S:25">
+                    <p>Don't have an account? <a href="#" class="SignupLink">Signup</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0; --S:20">WELCOME!</h2>
+            <p class="animation" style="--D:1; --S:21">Thank you for choosing us!</p>
+        </div>
+
+        <div class="form-box Register">
+            <h2 class="animation" style="--li:17; --S:0;">Register</h2>
+            <form action="#">
+                <div class="input-box animation"style="--li:18; --S:1;">
+                    <input type="text" required>
+                    <label for="">Username</label>
+                    <i class='bx bxs-user-circle'></i>
+                </div>
+                <div class="input-box animation"style="--li:18; --S:1;">
+                    <input type="email" required>
+                    <label for="">Email</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box animation"style="--li:19; --S:2;">
+                    <input type="password" required>
+                    <label for="">Password</label>
+                    <i class='bx bxs-lock-open-alt'></i>
+                </div>
+                <div class="input-box animation"style="--li:20;--S:3;">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+                <div class="regi-link animation"style="--li:21; --S:4;">
+                    <p>Already have an account? <a href="#" class="SignInLink">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-content Register">
+            <h2 class="animation"style="--li:17; --S:0;">WELCOME BACK!</h2>
+            <p class="animation"style="--li:18; --S:1;">Thank you for joining us!</p>
+        </div>
+    </div>
+    <div class="thank-you-message" id="thankYouMessage">
+        <h2>Thank You for Registering with Us!</h2>
+        <p>We are excited to have you on board.</p>
+    </div>
+
+    <script src="static/assets/js/script.js"></script>
+    
+
+    
+</body>
+</html>
