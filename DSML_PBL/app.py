@@ -14,7 +14,7 @@ app = Flask(__name__)
 secret_key = secrets.token_hex(16)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', secret_key)
 
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://localhost:27017')
 db = client['eduverse']
 users_collection = db['users']
 
@@ -61,7 +61,8 @@ def signup():
         }
         users_collection.insert_one(new_user)
         flash('Signup successful. You can now login.', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('login'))  # Redirect to login after signup
+
 
     return render_template('signup.html')
 
@@ -76,7 +77,7 @@ def login():
         if user_data:
             user = User(user_data['username'])
             login_user(user)
-            return redirect(url_for('index'))
+            return redirect(url_for('recommend'))
         else:
             flash('Invalid username or password. Please try again.', 'error')
             return redirect(url_for('login'))
