@@ -5,9 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+<!-- Favicon -->
+<link href="static/assets/images/open-book.ico" rel="icon">
+
     <style>
          body {
-            background-color: #000;
+            background-image: url('static/assets/images/meetings-page-bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
             color: #fff;
             font-family: Arial, sans-serif;
             margin: 10;
@@ -15,28 +23,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100%;
         } 
-    /*    body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            margin: 0;
-            padding: 40px;
-        }-->*/
 
         .containers {
-            margin: 30px;
             width: 400px;
-            /* height: 520px; */
+            /* height: 520px;*/
             margin: auto;
             padding: 20px;
-            background-color: rgb(24, 21, 21);
-            border-radius: 5px;
+            border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
         }
-
 
         h1 {
             color: #333;
@@ -57,7 +56,6 @@
 
  
         .card {
-
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -72,6 +70,10 @@
             color: #000000;
         }
 
+        form{
+            margin-top:150px;
+            margin-bottom:150px;
+        }
 
         label {
             display: block;
@@ -107,12 +109,39 @@
             color: #fff;
             background-color: #ad1810;
         }
-
         
     </style>
 </head>
 
 <body>
+    
+    <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        EduVerse
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="/login">Login Now</a></li>
+                    </ul>  
+                    <!-- ***** Menu End ***** -->
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
 
      <!-- -------signup ------------- -->
 
@@ -155,6 +184,7 @@
             </div>
         </div>
     </form>
+    
 
 </body>
 

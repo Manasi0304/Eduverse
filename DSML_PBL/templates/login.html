@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+
+    <!-- Favicon -->
+    <link href="static/assets/images/open-book.ico" rel="icon">
+    
     <style>
          body {
-            background-color: #000;
+            background-image: url('static/assets/images/meetings-page-bg.jpg');
             color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -22,15 +27,16 @@
             background-color: #000000;
             margin: 0;
             padding: 40px;
+            background-color: black ;
+
         }*/
 
         .containers {
             margin: 30px;
             width: 400px;
-             height: 320px; 
+            height: 320px; 
             margin: auto;
             padding: 20px;
-            background-color: rgb(24, 21, 21);
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -113,6 +119,33 @@
 </head>
 
 <body>
+    <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        EduVerse
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="/signup" >Sign up</a></li>
+
+                    </ul>  
+                    <!-- ***** Menu End ***** -->
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
     <form action="/login" method="POST">
         <div class='containers'>
