@@ -1,0 +1,148 @@
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.8rem; /* Increased font size */
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height for video */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(16, 15, 15);
+    overflow: hidden;
+}
+
+/* Styling the video */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover entire section */
+    z-index: -1; /* Ensure it's behind other content */
+    opacity: 0.6;
+}
+
+/* Input form styling */
+#recommendation-section {
+    padding: 30px 0; 
+}
+
+#recommendation-section h1 {
+    font-size: 2rem; 
+    margin-bottom: 20px; 
+}
+
+#recommendation-section h4 {
+    font-size: 1.5rem; 
+}
+
+#recommendation-section .form-control {
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    padding: 15px; 
+    font-size: 1rem; 
+}
+
+#recommendation-section .form-control:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.1);
+}
+
+#recommendation-section .btn-primary {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+    padding: 10px 20px; 
+    font-size: 1.1rem; 
+}
+
+#recommendation-section .btn-primary:hover {
+    background-color: #fa5252;
+    border-color: #fa5252;
+}
+
+/* Recommendation card styling */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .card-body {
+    padding: 20px; 
+}
+
+.card .card-body p {
+    font-size: 1rem; 
+    margin-bottom: 0;
+}
+
+.card .btn-outline-danger {
+    color: white;
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+    padding: 5px 10px; 
+    font-size: 1rem; 
+}
+
+.card .btn-outline-danger:hover {
+    background-color: #fa5252;
+    border-color: #fa5252;
+}
+
+/* Footer Styling */
+#footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0; /* Increased padding */
+    text-align: center;
+    margin-top: 40px;
+}
+
+#footer a {
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #fa5252;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem; /* Adjusted for smaller screens */
+    }
+
+    #recommendation-section h1 {
+        font-size: 2.5rem; /* Adjusted for smaller screens */
+    }
+
+    #recommendation-section h4 {
+        font-size: 1.5rem; /* Adjusted for smaller screens */
+    }
+
+    .hero-section p {
+        font-size: 1.2rem; /* Increased for smaller screens */
+    }
+}

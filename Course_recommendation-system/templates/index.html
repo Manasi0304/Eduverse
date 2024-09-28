@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Style and Bootstrap -->
+    <link rel="stylesheet" href="static/style.css">
+
+    <!-- Bootstrap CSS (version 5.0.0) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- Optionally, Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Course Recommendation | Home</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Udemy Course Recommendation System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="hero-section position-relative">
+            <!-- Video Background -->
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="static/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="hero-content text-center" id="recommendation-section"> <!-- Added id here -->
+                <h1 class="jumbotron-heading">Enter The Name of the Course for Recommendations</h1>
+                <div class="form-floating my-4">
+                    <form action="/" method="POST">
+                        <div class="mb-3">
+                            <input name="course" type="text" class="form-control" id="course" placeholder="Course Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Recommend</button>
+                    </form>
+                </div>
+                {% if showtitle %}
+                    <h4 class="jumbotron-heading">Recommendations for Course <span style="color: red; font-size:1.5rem;">"{{coursename}}"</span> are shown below</h4>
+                {% endif %}
+            </div>
+            
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                {% if showerror %}
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Course Not Found</h5>
+                        <p class="card-text">The course "{{coursename}}" is not available. We’ll notify the course administrator to upload it soon.</p>
+                        <a href="/" class="btn btn-primary">Home Page</a>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="row">
+                    {% for course in coursemap %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body bg-dark">
+                                <p class="card-text" style="color:white;">{{ course }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{ coursemap[course] }}" target="_blank" class="btn btn-outline-danger" style="color: white;">View Course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>&copy; 2024 Course Recommendation System. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS (version 5.0.0) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-OH4mQhZG2pYurDF1Ik3HZO8z4eJg3W2R+49NpyMwIb3SBoNkQyS48gEuJ07vTqdh" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-Cn7l7W68n5EoGHW9eFz3lY5bSjF9nTmlOs7DFH24H/qtLPVjjKzR4u+Hb5K3U3nH" crossorigin="anonymous"></script>
+</body>
+
+</html>
