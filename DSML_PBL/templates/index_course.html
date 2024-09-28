@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Style and Bootstrap -->
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/assets/css/style_course.css">
 
     <!-- Bootstrap CSS (version 5.0.0) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -15,7 +15,7 @@
     <!-- Optionally, Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-    <title>Course Recommendation | Home</title>
+    <title>EduVerse Course Recommendation System</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Udemy Course Recommendation System</a>
+            <a class="navbar-brand" href="/index_course">Udemy Course Recommendation System</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,14 +45,14 @@
         <section class="hero-section position-relative">
             <!-- Video Background -->
             <video autoplay muted loop playsinline class="video-background">
-                <source src="static/video.mp4" type="video/mp4">
+                <source src="static/assets/css/video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
             <div class="hero-content text-center" id="recommendation-section"> <!-- Added id here -->
                 <h1 class="jumbotron-heading">Enter The Name of the Course for Recommendations</h1>
                 <div class="form-floating my-4">
-                    <form action="/" method="POST">
+                    <form action="/index_course" method="POST">
                         <div class="mb-3">
                             <input name="course" type="text" class="form-control" id="course" placeholder="Course Name">
                         </div>
@@ -73,7 +73,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Course Not Found</h5>
                         <p class="card-text">The course "{{coursename}}" is not available. We’ll notify the course administrator to upload it soon.</p>
-                        <a href="/" class="btn btn-primary">Home Page</a>
+                        <a href="/index_course" class="btn btn-primary">Home Page</a>
                     </div>
                 </div>
                 {% endif %}
