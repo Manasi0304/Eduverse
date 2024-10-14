@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    scroll-padding: 2rem;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+/* Some variables */
+:root {
+    --main-color: #ff2c1f;
+    --text-color: #020307;
+    --bg-color: #fff;
+    --nav-color: #1d1b1b;
+    --sel-color: #708090;
+}
+
+html::-webkit-scrollbar {
+    width: 0.2rem;
+    background: var(--text-color);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+
+body {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+section {
+    padding-top: 75px;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    transition: 1.5s;
+    background: var(--nav-color);
+}
+
+/* Replaced movie logo with EduVerse text */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bg-color);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.u {
+    font-size: 44px;
+    color: var(--main-color);
+}
+
+.navbar {
+    display: flex;
+    column-gap: 5rem;
+}
+
+.navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bg-color);
+}
+
+.eduverse-container {
+    max-width: 600px; /* Set a maximum width */
+    margin: 50px auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background: rgba(172, 14, 14, 0.8); /* Slight background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.user-details {
+    text-align: center; /* Align text to left */
+}
+
+.heading {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--main-color);
+}
+
+.footer {
+    border-top: 5px solid var(--main-color);
+    max-width: 90%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem 0;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.social .bx {
+    background-color: var(--bg-color);
+    padding: 2px;
+    font-size: 2rem;
+    border-radius: 50%;
+    border: 4px solid rgb(2, 3, 7, 0.4);
+    color: var(--main-color);
+}
+
+.social .bx:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    transition: 0.2s all linear;
+}
+
+@media(max-width:1080px) {
+    .home-text {
+        padding: 0 100px;
+    }
+}

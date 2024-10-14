@@ -55,6 +55,7 @@
                               <ul class="sub-menu">
                                   <li><a href="/recommend">Resources</a></li>
                                   <li><a href="/index_course">Course</a></li>
+                                  <li><a href="/recommendation">Book Recommendation</a></li>
                               </ul>
                           </li>
                           
@@ -410,6 +411,36 @@
           checkSection();
         });
     </script>
+    function toggleChatbot() {
+      var chatbot = document.getElementById('chatbot');
+      if (chatbot.style.display === 'none') {
+          chatbot.style.display = 'block';
+      } else {
+          chatbot.style.display = 'none';
+      }
+  }
+    
+            </script>
+  
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+        "composerPlaceholder": "Chat with bot",
+        "botConversationDescription": "Eduverse Chat",
+        "botId": "38ed9c45-d8e2-43ba-bd18-35e4b76f9c97",
+        "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+        "messagingUrl": "https://messaging.botpress.cloud",
+        "clientId": "38ed9c45-d8e2-43ba-bd18-35e4b76f9c97",
+        "webhookId": "7de78305-36fa-4a97-a0cb-7d3962e22582",
+        "lazySocket": true,
+        "themeName": "prism",
+        "frontendVersion": "v1",
+        "enableConversationDeletion": true,
+        "showPoweredBy": true,
+        "theme": "prism",
+        "themeColor": "#2563eb"
+    });
+  </script>
 </body>
 
 </body>

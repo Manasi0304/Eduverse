@@ -156,10 +156,18 @@ def index():
     return render_template('index.html')
 
 # ------------- profile ------------- 
-@app.route('/profile', methods=['GET', 'POST'])
+
+@app.route('/profile',methods=['GET','POST'])
 def profile():
-    user_data = users_collection.find_one({'username': current_user.username})
-    return render_template('profile.html', user_data=user_data)
+    if current_user.is_authenticated:  # Check if the user is authenticated
+        # user_data = users.find_one({'username': current_user.username})
+
+        user_details = users_collection.find_one({'username':current_user.username})
+        
+        return render_template('profile.html', user_details=user_details)
+
+    return render_template('profile.html')
+
 
 # ---------- recommend ----------- 
 @app.route('/recommend', methods=['GET', 'POST'])
@@ -373,6 +381,105 @@ def dashboard():
 
 
 #course recommendation system end
+
+
+#BOOK RECOMMENDATION SYSTEM START
+
+# Load your data
+
+# Load your data
+popular_df = pickle.load(open('popular.pkl', 'rb'))
+pt = pickle.load(open('pt.pkl', 'rb'))
+books = pickle.load(open('books.pkl', 'rb'))
+similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
+
+# Home route
+@app.route('/')
+def homepage():
+    return render_template('index.html')
+
+# Book recommendation system routes
+@app.route('/recommendation', methods=['GET', 'POST'])
+def recommend_books():
+    if request.method == 'POST':
+        user_input = request.form.get('user_input').lower()
+
+        # Initialize variables for book and author matching
+        book_found = None
+        author_found = None
+
+        # Search for the book in title
+        for book in pt.index:
+            if user_input in book.lower():
+                book_found = book
+                break
+
+        # Search for the author in the books dataset
+        if not book_found:
+            for author in books['Book-Author'].unique():
+                if user_input in author.lower():
+                    author_found = author
+                    break
+
+        data = []
+
+        # If a book is found, recommend similar books
+        if book_found:
+            index = np.where(pt.index == book_found)[0][0]
+            similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
+
+            for i in similar_items:
+                item = []
+                temp_df = books[books['Book-Title'] == pt.index[i[0]]]
+                item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title'].values))
+                item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author'].values))
+                item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values))
+                data.append(item)
+
+        # If an author is found, recommend books by the author
+        elif author_found:
+            author_books = books[books['Book-Author'] == author_found].drop_duplicates('Book-Title')
+
+            for _, row in author_books.iterrows():
+                item = []
+                item.append(row['Book-Title'])
+                item.append(row['Book-Author'])
+                item.append(row['Image-URL-M'])
+                data.append(item)
+
+        # If no match found, display a message
+        if not data:
+            error = "No Book or Author found. Please try again."
+            book_name = list(popular_df['Book-Title'].values)
+            author = list(popular_df['Book-Author'].values)
+            image = list(popular_df['Image-URL-M'].values)
+            votes = list(popular_df['num_ratings'].values)
+            rating = list(popular_df['avg_rating'].values)
+            return render_template('recommendation.html', error=error, book_name=book_name, author=author, image=image, votes=votes, rating=rating)
+
+        book_name = list(popular_df['Book-Title'].values)
+        author = list(popular_df['Book-Author'].values)
+        image = list(popular_df['Image-URL-M'].values)
+        votes = list(popular_df['num_ratings'].values)
+        rating = list(popular_df['avg_rating'].values)
+        return render_template('recommendation.html', data=data, book_name=book_name, author=author, image=image, votes=votes, rating=rating)
+
+    else:
+        # Load top 50 books data
+        book_name = list(popular_df['Book-Title'].values)
+        author = list(popular_df['Book-Author'].values)
+        image = list(popular_df['Image-URL-M'].values)
+        votes = list(popular_df['num_ratings'].values)
+        rating = list(popular_df['avg_rating'].values)
+
+        return render_template('recommendation.html',
+                               book_name=book_name,
+                               author=author,
+                               image=image,
+                               votes=votes,
+                               rating=rating)
+
+#BOOK RECOMMENDATION END
 
 
 if __name__ == '__main__':
