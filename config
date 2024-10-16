@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/Akshada2674/Student_Performance_System.git
+	fetch = +refs/*:refs/*
+	mirror = true
